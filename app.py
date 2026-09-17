@@ -11,7 +11,7 @@ from data import SCENARIO_START, SCENARIO_END
 
 st.set_page_config(
     page_title="Executive Productivity Agent",
-    page_icon="🤖",
+    page_icon="◈",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -24,397 +24,397 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-
-    /* ---------- GLOBAL ---------- */
-
-    .stApp {
-        background: #f6f8fc;
-    }
+    .stApp { background: #f7f8fc; }
 
     .main .block-container {
-        max-width: 1280px;
-        padding-top: 2.2rem;
-        padding-bottom: 4rem;
+        max-width: 1420px;
+        padding-top: 1.25rem;
+        padding-bottom: 3.5rem;
     }
 
     h1, h2, h3 {
-        color: #18254f !important;
-        letter-spacing: -0.5px;
-    }
-
-    h1 {
-        font-size: 2.8rem !important;
-        font-weight: 750 !important;
-        margin-bottom: 0.15rem !important;
-    }
-
-    h2 {
-        font-size: 1.9rem !important;
-        font-weight: 700 !important;
-    }
-
-    h3 {
-        font-size: 1.45rem !important;
-        font-weight: 700 !important;
+        color: #172554 !important;
+        letter-spacing: -0.4px;
     }
 
     p, span, label, div {
-        font-family: Inter, -apple-system, BlinkMacSystemFont,
-                     "Segoe UI", sans-serif;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-
-    /* ---------- SIDEBAR ---------- */
-
+    /* SIDEBAR */
     section[data-testid="stSidebar"] {
-        background: linear-gradient(
-            180deg,
-            #eef2ff 0%,
-            #f5f7ff 55%,
-            #f8f9fc 100%
-        );
-        border-right: 1px solid #e2e6f0;
+        background: #fbfbfe;
+        border-right: 1px solid #e4e7ef;
     }
 
-    section[data-testid="stSidebar"] h2 {
-        color: #18254f !important;
-        font-size: 1.2rem !important;
-        margin-bottom: 1.2rem !important;
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 4px 4px 17px;
+        border-bottom: 1px solid #e8eaf1;
+        margin-bottom: 16px;
     }
 
-    section[data-testid="stSidebar"] label {
-        color: #475569 !important;
-        font-weight: 600 !important;
+    .brand-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
     }
 
+    .brand-title {
+        color: #172554;
+        font-size: .9rem;
+        font-weight: 800;
+        line-height: 1.1;
+    }
 
-    /* ---------- HERO ---------- */
+    .brand-subtitle {
+        color: #94a3b8;
+        font-size: .66rem;
+        margin-top: 3px;
+    }
 
+    .nav-label {
+        color: #94a3b8;
+        font-size: .66rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        margin: 14px 4px 7px;
+    }
+
+    .nav-item {
+        color: #64748b;
+        font-size: .81rem;
+        font-weight: 650;
+        padding: 8px 10px;
+        border-radius: 9px;
+        margin-bottom: 3px;
+    }
+
+    .nav-item-active {
+        background: #eef2ff;
+        color: #3730a3;
+        font-weight: 750;
+    }
+
+    .scenario-box {
+        background: #f8f9ff;
+        border: 1px solid #e3e7f2;
+        border-radius: 13px;
+        padding: 12px;
+        margin-top: 15px;
+    }
+
+    /* TOP BAR */
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 13px;
+    }
+
+    .eyebrow {
+        color: #64748b;
+        font-size: .7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+    }
+
+    .date-pill {
+        background: #fff;
+        border: 1px solid #e1e5ee;
+        color: #475569;
+        border-radius: 999px;
+        padding: 6px 11px;
+        font-size: .72rem;
+        font-weight: 650;
+    }
+
+    /* HERO */
     .hero {
-        background: linear-gradient(
-            135deg,
-            #eef2ff 0%,
-            #f8f7ff 48%,
-            #eef8ff 100%
-        );
-        border: 1px solid #e2e7f3;
-        border-radius: 22px;
-        padding: 28px 32px;
-        margin-bottom: 30px;
-        box-shadow: 0 8px 28px rgba(30, 45, 90, 0.06);
+        background: linear-gradient(115deg, #eef2ff, #f8f7ff 55%, #edf8ff);
+        border: 1px solid #e0e5f1;
+        border-radius: 19px;
+        padding: 24px 28px 22px;
+        margin-bottom: 18px;
+        box-shadow: 0 7px 24px rgba(30,45,90,.045);
+    }
+
+    .hero-kicker {
+        color: #6366f1;
+        font-size: .68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.15px;
+        margin-bottom: 7px;
     }
 
     .hero-title {
-        font-size: 2.75rem;
-        font-weight: 800;
-        color: #18254f;
-        line-height: 1.1;
-        margin-bottom: 8px;
+        color: #172554;
+        font-size: 2.15rem;
+        font-weight: 850;
+        line-height: 1.12;
+        margin-bottom: 9px;
     }
 
-    .hero-subtitle {
+    .hero-context {
         color: #64748b;
-        font-size: 1.02rem;
-        margin-bottom: 18px;
+        font-size: .8rem;
+        line-height: 1.45;
     }
 
     .hero-line {
+        width: 74px;
         height: 4px;
-        width: 72px;
-        border-radius: 20px;
-        background: linear-gradient(
-            90deg,
-            #5865f2,
-            #8b5cf6,
-            #38bdf8
-        );
+        border-radius: 999px;
+        background: linear-gradient(90deg, #4f46e5, #7c3aed, #38bdf8);
+        margin-top: 14px;
     }
 
-
-    /* ---------- SECTION LABEL ---------- */
-
+    /* SECTIONS */
     .section-kicker {
-        color: #64748b;
-        font-size: 0.76rem;
-        font-weight: 750;
+        color: #94a3b8;
+        font-size: .66rem;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin-bottom: 5px;
+        letter-spacing: 1.25px;
+        margin-bottom: 3px;
     }
 
+    .section-title {
+        color: #172554;
+        font-size: 1.28rem;
+        font-weight: 820;
+        margin-bottom: 11px;
+    }
 
-    /* ---------- METRIC CARDS ---------- */
-
+    /* METRICS */
     .metric-card {
-        background: #ffffff;
-        border: 1px solid #e2e7f0;
-        border-radius: 17px;
-        padding: 21px 22px;
-        min-height: 120px;
-        box-shadow: 0 5px 18px rgba(30, 45, 90, 0.055);
+        background: #fff;
+        border: 1px solid #e1e5ee;
+        border-radius: 14px;
+        min-height: 101px;
+        padding: 15px 17px;
+        box-shadow: 0 4px 15px rgba(30,45,90,.045);
         position: relative;
         overflow: hidden;
     }
 
-    .metric-card::before {
+    .metric-card:before {
         content: "";
         position: absolute;
         left: 0;
         top: 0;
         bottom: 0;
-        width: 5px;
-        border-radius: 17px 0 0 17px;
+        width: 4px;
     }
 
-    .metric-blue::before {
-        background: #5865f2;
-    }
+    .metric-blue:before { background: #4f46e5; }
+    .metric-purple:before { background: #7c3aed; }
+    .metric-amber:before { background: #f59e0b; }
+    .metric-red:before { background: #ef4444; }
 
-    .metric-purple::before {
-        background: #8b5cf6;
-    }
-
-    .metric-amber::before {
-        background: #f59e0b;
-    }
-
-    .metric-red::before {
-        background: #ef4444;
-    }
-
-    .metric-icon {
-        font-size: 1.15rem;
-        margin-bottom: 6px;
+    .metric-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
     }
 
     .metric-label {
         color: #64748b;
-        font-size: 0.82rem;
-        font-weight: 650;
-        margin-bottom: 4px;
+        font-size: .67rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .75px;
+    }
+
+    .metric-icon {
+        width: 27px;
+        height: 27px;
+        border-radius: 8px;
+        background: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .8rem;
     }
 
     .metric-value {
         color: #172554;
-        font-size: 2rem;
-        font-weight: 800;
+        font-size: 1.75rem;
+        font-weight: 850;
         line-height: 1;
     }
 
+    /* PRIORITY */
+    .priority-banner {
+        background: linear-gradient(100deg, #171d4d, #24276a);
+        border-radius: 14px;
+        padding: 13px 17px;
+        color: #fff;
+        margin: 15px 0 22px;
+        box-shadow: 0 8px 22px rgba(24,37,84,.12);
+    }
 
-    /* ---------- CARD CONTENT ---------- */
+    .priority-label {
+        color: #c7d2fe;
+        font-size: .63rem;
+        font-weight: 850;
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+        margin-bottom: 3px;
+    }
 
+    .priority-title {
+        font-size: .92rem;
+        font-weight: 780;
+    }
+
+    .priority-meta {
+        color: #cbd5e1;
+        font-size: .69rem;
+        margin-top: 2px;
+    }
+
+    /* CARDS */
     div[data-testid="stVerticalBlockBorderWrapper"] {
-        border-radius: 16px !important;
-        border-color: #e0e5ef !important;
-        background: #ffffff !important;
-        box-shadow: 0 4px 16px rgba(30, 45, 90, 0.04);
+        border-radius: 13px !important;
+        border-color: #e1e5ee !important;
+        background: #fff !important;
+        box-shadow: 0 3px 13px rgba(30,45,90,.035);
     }
-
-
-    /* ---------- STATUS BADGES ---------- */
-
-    .status-badge {
-        display: inline-block;
-        padding: 5px 10px;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        font-weight: 750;
-        letter-spacing: 0.4px;
-        margin-right: 7px;
-        margin-bottom: 8px;
-    }
-
-    .status-overdue {
-        background: #fee2e2;
-        color: #b91c1c;
-    }
-
-    .status-review {
-        background: #fef3c7;
-        color: #92400e;
-    }
-
-    .status-confirmed {
-        background: #dcfce7;
-        color: #166534;
-    }
-
-    .status-waiting {
-        background: #ede9fe;
-        color: #6d28d9;
-    }
-
-    .status-unconfirmed {
-        background: #fef3c7;
-        color: #92400e;
-    }
-
-    .priority-badge {
-        display: inline-block;
-        padding: 5px 10px;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        font-weight: 750;
-        background: #eef2ff;
-        color: #4338ca;
-        letter-spacing: 0.3px;
-    }
-
-
-    /* ---------- ACTION TITLE ---------- */
 
     .action-title {
-        font-size: 1.04rem;
-        font-weight: 750;
         color: #172554;
-        margin-bottom: 10px;
+        font-size: .91rem;
+        font-weight: 800;
+        line-height: 1.35;
+        margin-bottom: 7px;
     }
 
     .field-label {
-        color: #64748b;
-        font-size: 0.76rem;
-        font-weight: 650;
+        color: #94a3b8;
+        font-size: .61rem;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 0.7px;
+        letter-spacing: .75px;
         margin-bottom: 2px;
     }
 
     .field-value {
-        color: #24324f;
-        font-size: 0.94rem;
-        font-weight: 600;
+        color: #334155;
+        font-size: .75rem;
+        font-weight: 650;
     }
 
+    .badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: .61rem;
+        font-weight: 800;
+        letter-spacing: .25px;
+        margin-right: 4px;
+        margin-bottom: 7px;
+    }
 
-    /* ---------- SPECIAL WARNING CARDS ---------- */
+    .badge-overdue { background: #fee2e2; color: #b91c1c; }
+    .badge-review { background: #fef3c7; color: #92400e; }
+    .badge-confirmed { background: #dcfce7; color: #166534; }
+    .badge-waiting { background: #ede9fe; color: #6d28d9; }
+    .badge-owner { background: #fff7ed; color: #c2410c; }
+    .badge-priority { background: #eef2ff; color: #4338ca; }
 
     .ownership-note {
         background: #fffbeb;
         border: 1px solid #fde68a;
-        border-left: 4px solid #f59e0b;
-        border-radius: 10px;
-        padding: 13px 15px;
+        border-left: 3px solid #f59e0b;
+        border-radius: 8px;
+        padding: 8px 10px;
         color: #92400e;
-        font-size: 0.87rem;
-        line-height: 1.45;
-        margin: 10px 0 12px 0;
+        font-size: .7rem;
+        line-height: 1.4;
+        margin-top: 8px;
     }
 
     .overdue-box {
-        background: #fff5f5;
+        background: #fff7f7;
         border: 1px solid #fecaca;
-        border-left: 4px solid #ef4444;
-        border-radius: 12px;
-        padding: 14px 16px;
-        margin-bottom: 10px;
+        border-left: 3px solid #ef4444;
+        border-radius: 9px;
+        padding: 10px 12px;
+        margin-bottom: 7px;
     }
 
     .overdue-title {
         color: #991b1b;
-        font-weight: 750;
-        font-size: 0.95rem;
+        font-size: .78rem;
+        font-weight: 800;
     }
 
     .overdue-status {
         color: #b91c1c;
-        font-size: 0.82rem;
-        margin-top: 3px;
+        font-size: .68rem;
+        margin-top: 2px;
     }
 
-
-    /* ---------- ASK THE AGENT ---------- */
-
-    .agent-header {
-        background: linear-gradient(
-            135deg,
-            #eef2ff,
-            #f5f3ff
-        );
-        border: 1px solid #dddff7;
-        border-radius: 18px;
-        padding: 20px 22px;
+    div[data-testid="stExpander"] {
+        border: 1px solid #e8ebf2 !important;
+        border-radius: 8px !important;
+        background: #fafbfe !important;
         margin-top: 8px;
-        margin-bottom: 14px;
     }
 
-    .agent-title {
-        font-size: 1.35rem;
-        font-weight: 750;
-        color: #18254f;
-    }
-
-    .agent-description {
-        color: #64748b;
-        font-size: 0.9rem;
-        margin-top: 4px;
-    }
-
-
-    /* ========================================================
-       CLICKABLE QUESTION BUTTONS
-       ======================================================== */
-
-    .question-buttons {
-        margin-top: 4px;
-        margin-bottom: 14px;
-    }
-
+    /* QUESTIONS */
     .question-buttons div[data-testid="stButton"] > button {
-        background: #ffffff !important;
-        color: #334155 !important;
-        border: 1px solid #dfe4ef !important;
+        background: #fff !important;
+        color: #475569 !important;
+        border: 1px solid #e0e5ee !important;
         border-radius: 999px !important;
-        padding: 8px 14px !important;
-        min-height: 40px !important;
-        height: auto !important;
-        font-size: 0.80rem !important;
-        font-weight: 600 !important;
-        box-shadow: 0 2px 7px rgba(30, 45, 90, 0.035) !important;
-        transition: all 0.18s ease !important;
-        white-space: nowrap !important;
+        min-height: 36px !important;
+        padding: 5px 10px !important;
+        font-size: .69rem !important;
+        font-weight: 700 !important;
+        box-shadow: none !important;
     }
 
     .question-buttons div[data-testid="stButton"] > button:hover {
         background: #eef2ff !important;
         border-color: #a5b4fc !important;
         color: #3730a3 !important;
-        transform: translateY(-1px);
-        box-shadow: 0 5px 12px rgba(79, 70, 229, 0.10) !important;
     }
 
-    .question-buttons div[data-testid="stButton"] > button:active {
-        transform: translateY(0);
+    .agent-header {
+        background: #fff;
+        border: 1px solid #e1e5ee;
+        border-radius: 14px;
+        padding: 13px 16px;
+        margin-top: 7px;
+        margin-bottom: 10px;
     }
 
-
-    /* ---------- CHAT ---------- */
-
-    div[data-testid="stChatMessage"] {
-        border-radius: 15px;
+    .agent-title {
+        color: #172554;
+        font-size: 1rem;
+        font-weight: 800;
     }
 
-    div[data-testid="stChatInput"] {
-        margin-top: 8px;
-    }
-
-
-    /* ---------- DIVIDER ---------- */
+    div[data-testid="stChatMessage"] { border-radius: 12px; }
 
     hr {
-        border-color: #e3e7ef !important;
-        margin: 34px 0 !important;
+        border-color: #e5e7ef !important;
+        margin: 25px 0 !important;
     }
-
-
-    /* ---------- EXPANDER ---------- */
-
-    div[data-testid="stExpander"] {
-        border: 1px solid #e2e7ef !important;
-        border-radius: 11px !important;
-        background: #fafbfe !important;
-    }
-
     </style>
     """,
     unsafe_allow_html=True,
@@ -422,11 +422,32 @@ st.markdown(
 
 
 # ============================================================
-# SIDEBAR — SCENARIO
+# SIDEBAR
 # ============================================================
 
 with st.sidebar:
-    st.markdown("## Scenario")
+    st.markdown(
+        """
+        <div class="brand">
+            <div class="brand-icon">◈</div>
+            <div>
+                <div class="brand-title">Executive Productivity</div>
+                <div class="brand-subtitle">Action intelligence workspace</div>
+            </div>
+        </div>
+
+        <div class="nav-label">Workspace</div>
+        <div class="nav-item nav-item-active">▦ &nbsp; Daily Brief</div>
+        <div class="nav-item">✓ &nbsp; My Actions</div>
+        <div class="nav-item">◷ &nbsp; Waiting on Others</div>
+        <div class="nav-item">! &nbsp; Unclear Ownership</div>
+        <div class="nav-item">⚠ &nbsp; Overdue</div>
+        <div class="nav-item">⌕ &nbsp; Ask the Agent</div>
+
+        <div class="nav-label">Scenario</div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     scenario_date = st.date_input(
         "Date",
@@ -440,9 +461,22 @@ with st.sidebar:
         value=time(9, 0),
     )
 
-    scenario_dt = datetime.combine(
-        scenario_date,
-        scenario_time
+    scenario_dt = datetime.combine(scenario_date, scenario_time)
+
+    st.markdown(
+        f"""
+        <div class="scenario-box">
+            <div style="color:#172554;font-size:.77rem;font-weight:800;margin-bottom:8px;">
+                Scenario context
+            </div>
+            <div class="field-label">Selected date</div>
+            <div class="field-value">{scenario_date.strftime("%d %b %Y")}</div>
+            <div style="height:6px;"></div>
+            <div class="field-label">Scenario time</div>
+            <div class="field-value">{scenario_time.strftime("%I:%M %p")}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
 
@@ -454,13 +488,31 @@ brief = daily_brief(scenario_dt)
 
 
 # ============================================================
+# TOP BAR
+# ============================================================
+
+st.markdown(
+    f"""
+    <div class="topbar">
+        <div class="eyebrow">Executive Productivity Agent</div>
+        <div class="date-pill">
+            Scenario · {scenario_date.strftime("%d %b %Y")} · {scenario_time.strftime("%I:%M %p")}
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+# ============================================================
 # HERO
 # ============================================================
 
 st.markdown(
     """
     <div class="hero">
-        <div class="hero-title">Executive Productivity Agent</div>
+        <div class="hero-kicker">Daily command center</div>
+        <div class="hero-title">What do I need to know and act on today?</div>
         <div class="hero-line"></div>
     </div>
     """,
@@ -469,29 +521,24 @@ st.markdown(
 
 
 # ============================================================
-# DAILY ACTION BRIEF
-# ============================================================
-
-st.markdown(
-    '<div class="section-kicker">Overview</div>',
-    unsafe_allow_html=True,
-)
-
-st.header("Daily Action Brief")
-
-
-# ============================================================
 # METRICS
 # ============================================================
 
-m1, m2, m3, m4 = st.columns(4)
+st.markdown(
+    '<div class="section-kicker">Today at a glance</div>',
+    unsafe_allow_html=True,
+)
+
+m1, m2, m3, m4 = st.columns(4, gap="medium")
 
 with m1:
     st.markdown(
         f"""
         <div class="metric-card metric-blue">
-            <div class="metric-icon">✓</div>
-            <div class="metric-label">MY ACTIONS</div>
+            <div class="metric-top">
+                <div class="metric-label">My Actions</div>
+                <div class="metric-icon">✓</div>
+            </div>
             <div class="metric-value">{len(brief["my_actions"])}</div>
         </div>
         """,
@@ -502,8 +549,10 @@ with m2:
     st.markdown(
         f"""
         <div class="metric-card metric-purple">
-            <div class="metric-icon">◷</div>
-            <div class="metric-label">WAITING ON OTHERS</div>
+            <div class="metric-top">
+                <div class="metric-label">Waiting on Others</div>
+                <div class="metric-icon">◷</div>
+            </div>
             <div class="metric-value">{len(brief["waiting"])}</div>
         </div>
         """,
@@ -514,8 +563,10 @@ with m3:
     st.markdown(
         f"""
         <div class="metric-card metric-amber">
-            <div class="metric-icon">!</div>
-            <div class="metric-label">UNCLEAR OWNERSHIP</div>
+            <div class="metric-top">
+                <div class="metric-label">Unclear Ownership</div>
+                <div class="metric-icon">!</div>
+            </div>
             <div class="metric-value">{len(brief["unclear"])}</div>
         </div>
         """,
@@ -526,8 +577,10 @@ with m4:
     st.markdown(
         f"""
         <div class="metric-card metric-red">
-            <div class="metric-icon">⚠</div>
-            <div class="metric-label">OVERDUE</div>
+            <div class="metric-top">
+                <div class="metric-label">Overdue</div>
+                <div class="metric-icon">⚠</div>
+            </div>
             <div class="metric-value">{len(brief["overdue"])}</div>
         </div>
         """,
@@ -535,165 +588,132 @@ with m4:
     )
 
 
-st.markdown("<br>", unsafe_allow_html=True)
+# ============================================================
+# PRIORITY BANNER
+# ============================================================
+
+if brief["overdue"]:
+    priority_action = brief["overdue"][0]
+    priority_text = priority_action["title"]
+    priority_meta = priority_action["status"]
+elif brief["my_actions"]:
+    priority_action = brief["my_actions"][0]
+    priority_text = priority_action["title"]
+    priority_meta = f'Due {priority_action["deadline_label"]}'
+elif brief["unclear"]:
+    priority_action = brief["unclear"][0]
+    priority_text = priority_action["title"]
+    priority_meta = "Ownership needs confirmation"
+else:
+    priority_text = "No immediate priority detected"
+    priority_meta = "Review the daily brief for the latest context."
+
+st.markdown(
+    f"""
+    <div class="priority-banner">
+        <div class="priority-label">Immediate priority</div>
+        <div class="priority-title">{priority_text}</div>
+        <div class="priority-meta">{priority_meta}</div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # ============================================================
-# HELPER — STATUS BADGE
+# HELPERS
 # ============================================================
 
 def status_badge(status):
     status_lower = status.lower()
 
     if "overdue" in status_lower:
-        return '<span class="status-badge status-overdue">● OVERDUE</span>'
-
+        return '<span class="badge badge-overdue">● OVERDUE</span>'
     if "review pending" in status_lower:
-        return '<span class="status-badge status-review">● REVIEW PENDING</span>'
-
+        return '<span class="badge badge-review">● REVIEW PENDING</span>'
     if "review scheduled" in status_lower:
-        return '<span class="status-badge status-review">● REVIEW SCHEDULED</span>'
-
+        return '<span class="badge badge-review">● REVIEW SCHEDULED</span>'
     if "confirmed" in status_lower:
-        return '<span class="status-badge status-confirmed">● CONFIRMED</span>'
-
+        return '<span class="badge badge-confirmed">● CONFIRMED</span>'
     if "waiting" in status_lower:
-        return '<span class="status-badge status-waiting">● WAITING</span>'
-
+        return '<span class="badge badge-waiting">● WAITING</span>'
     if "unconfirmed" in status_lower:
-        return '<span class="status-badge status-unconfirmed">● OWNER UNCONFIRMED</span>'
+        return '<span class="badge badge-owner">● OWNER UNCONFIRMED</span>'
 
-    return '<span class="status-badge status-waiting">● PENDING</span>'
+    return '<span class="badge badge-waiting">● PENDING</span>'
 
 
-# ============================================================
-# MY ACTIONS
-# ============================================================
+def render_action_card(action, waiting=False, unclear=False):
+    with st.container(border=True):
+        st.markdown(
+            f'<div class="action-title">{action["title"]}</div>',
+            unsafe_allow_html=True,
+        )
 
-st.subheader("My Actions")
-
-if brief["my_actions"]:
-
-    for a in brief["my_actions"]:
-
-        with st.container(border=True):
-
-            st.markdown(
-                f'<div class="action-title">{a["title"]}</div>',
-                unsafe_allow_html=True,
+        if unclear:
+            badges = (
+                '<span class="badge badge-owner">● OWNER UNCONFIRMED</span>'
+                + f'<span class="badge badge-priority">{action["priority"].upper()} PRIORITY</span>'
+            )
+        elif waiting:
+            badges = '<span class="badge badge-waiting">● WAITING ON OTHERS</span>'
+        else:
+            badges = (
+                status_badge(action["status"])
+                + f'<span class="badge badge-priority">{action["priority"].upper()} PRIORITY</span>'
             )
 
-            st.markdown(
-                status_badge(a["status"])
-                + f'<span class="priority-badge">{a["priority"].upper()} PRIORITY</span>',
-                unsafe_allow_html=True,
-            )
+        st.markdown(badges, unsafe_allow_html=True)
 
+        c1, c2 = st.columns(2)
+
+        with c1:
             st.markdown(
                 f"""
-                <div style="margin-top:10px;">
-                    <div class="field-label">Deadline</div>
-                    <div class="field-value">{a["deadline_label"]}</div>
-                </div>
+                <div class="field-label">Deadline</div>
+                <div class="field-value">{action["deadline_label"]}</div>
                 """,
                 unsafe_allow_html=True,
             )
 
-            with st.expander("Evidence"):
-                for e in a["evidence"]:
-                    st.write("• " + e)
-
-else:
-    st.info("No current action is classified as mine.")
-
-
-# ============================================================
-# WAITING ON OTHERS
-# ============================================================
-
-st.subheader("Waiting on Others")
-
-if brief["waiting"]:
-
-    for a in brief["waiting"]:
-
-        with st.container(border=True):
-
-            st.markdown(
-                f'<div class="action-title">{a["title"]}</div>',
-                unsafe_allow_html=True,
-            )
-
-            st.markdown(
-                '<span class="status-badge status-waiting">● WAITING ON OTHERS</span>',
-                unsafe_allow_html=True,
-            )
-
-            st.markdown(
-                f"""
-                <div style="margin-top:8px;">
+        with c2:
+            if waiting:
+                st.markdown(
+                    f"""
                     <div class="field-label">Waiting on</div>
-                    <div class="field-value">{a["waiting_on"]}</div>
-                </div>
+                    <div class="field-value">{action["waiting_on"]}</div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+            elif unclear:
+                st.markdown(
+                    """
+                    <div class="field-label">Owner</div>
+                    <div class="field-value">Not established</div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.markdown(
+                    """
+                    <div class="field-label">Owner</div>
+                    <div class="field-value">Arjun</div>
+                    """,
+                    unsafe_allow_html=True,
+                )
 
-                <div style="margin-top:11px;">
-                    <div class="field-label">Expected</div>
-                    <div class="field-value">{a["deadline_label"]}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-            st.markdown(
-                f"""
-                <div style="margin-top:11px;">
-                    <div class="field-label">Status</div>
-                    <div class="field-value">{a["status"]}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-            with st.expander("Evidence"):
-                for e in a["evidence"]:
-                    st.write("• " + e)
-
-else:
-    st.info("No unresolved waiting item.")
-
-
-# ============================================================
-# UNCLEAR OWNERSHIP
-# ============================================================
-
-if brief["unclear"]:
-
-    st.subheader("Unclear Ownership")
-
-    for a in brief["unclear"]:
-
-        with st.container(border=True):
-
-            st.markdown(
-                f'<div class="action-title">{a["title"]}</div>',
-                unsafe_allow_html=True,
-            )
-
-            st.markdown(
-                '<span class="status-badge status-unconfirmed">● OWNER UNCONFIRMED</span>',
-                unsafe_allow_html=True,
-            )
-
+        if waiting:
             st.markdown(
                 f"""
                 <div style="margin-top:8px;">
-                    <div class="field-label">Deadline</div>
-                    <div class="field-value">{a["deadline_label"]}</div>
+                    <div class="field-label">Status</div>
+                    <div class="field-value">{action["status"]}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
+        if unclear:
             st.markdown(
                 """
                 <div class="ownership-note">
@@ -704,9 +724,73 @@ if brief["unclear"]:
                 unsafe_allow_html=True,
             )
 
-            with st.expander("Evidence"):
-                for e in a["evidence"]:
-                    st.write("• " + e)
+        with st.expander("Evidence"):
+            for evidence in action["evidence"]:
+                st.write("• " + evidence)
+
+
+# ============================================================
+# MAIN WORKSPACE
+# ============================================================
+
+left, right = st.columns([1.65, 1], gap="large")
+
+with left:
+    st.markdown(
+        '<div class="section-kicker">Requires your attention</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div class="section-title">My Actions</div>',
+        unsafe_allow_html=True,
+    )
+
+    if brief["my_actions"]:
+        for action in brief["my_actions"]:
+            render_action_card(action)
+    else:
+        st.info("No current action is classified as mine.")
+
+with right:
+    st.markdown(
+        '<div class="section-kicker">Needs clarification</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div class="section-title">Unclear Ownership</div>',
+        unsafe_allow_html=True,
+    )
+
+    if brief["unclear"]:
+        for action in brief["unclear"]:
+            render_action_card(action, unclear=True)
+    else:
+        st.success("No unresolved ownership issue.")
+
+
+# ============================================================
+# WAITING ON OTHERS
+# ============================================================
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+st.markdown(
+    '<div class="section-kicker">Dependencies</div>',
+    unsafe_allow_html=True,
+)
+st.markdown(
+    '<div class="section-title">Waiting on Others</div>',
+    unsafe_allow_html=True,
+)
+
+if brief["waiting"]:
+    wait_cols = st.columns(min(3, len(brief["waiting"])), gap="medium")
+
+    for i, action in enumerate(brief["waiting"]):
+        with wait_cols[i % len(wait_cols)]:
+            render_action_card(action, waiting=True)
+else:
+    st.info("No unresolved waiting item.")
 
 
 # ============================================================
@@ -714,24 +798,30 @@ if brief["unclear"]:
 # ============================================================
 
 if brief["overdue"]:
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    st.subheader("Overdue")
+    st.markdown(
+        '<div class="section-kicker">Risk</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<div class="section-title">Overdue Commitments</div>',
+        unsafe_allow_html=True,
+    )
 
-    for a in brief["overdue"]:
+    overdue_cols = st.columns(min(2, len(brief["overdue"])), gap="medium")
 
-        st.markdown(
-            f"""
-            <div class="overdue-box">
-                <div class="overdue-title">
-                    ⚠ {a["title"]}
+    for i, action in enumerate(brief["overdue"]):
+        with overdue_cols[i % len(overdue_cols)]:
+            st.markdown(
+                f"""
+                <div class="overdue-box">
+                    <div class="overdue-title">⚠ {action["title"]}</div>
+                    <div class="overdue-status">{action["status"]}</div>
                 </div>
-                <div class="overdue-status">
-                    {a["status"]}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+                """,
+                unsafe_allow_html=True,
+            )
 
 
 # ============================================================
@@ -743,17 +833,16 @@ st.divider()
 st.markdown(
     """
     <div class="agent-header">
-        <div class="agent-title">🤖 Ask the Agent</div>
-        
+        <div class="agent-title">◈ Ask the Agent</div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-
-# ============================================================
-# CLICKABLE EXAMPLE QUESTIONS
-# ============================================================
+st.markdown(
+    '<div class="section-kicker">Quick questions</div>',
+    unsafe_allow_html=True,
+)
 
 questions = [
     "What did I promise Raghav?",
@@ -763,58 +852,24 @@ questions = [
     "What has unclear ownership?",
 ]
 
-st.markdown(
-    '<div class="section-kicker">Try asking</div>',
-    unsafe_allow_html=True,
-)
-
-
-# ------------------------------------------------------------
-# IMPORTANT:
-# These are REAL Streamlit buttons.
-# Clicking one immediately runs the corresponding query.
-# ------------------------------------------------------------
-
 selected_question = None
 
-st.markdown(
-    '<div class="question-buttons">',
-    unsafe_allow_html=True,
-)
+st.markdown('<div class="question-buttons">', unsafe_allow_html=True)
 
 qcols = st.columns(5)
 
-for i, q in enumerate(questions):
+for i, question_text in enumerate(questions):
     with qcols[i]:
         if st.button(
-            q,
+            question_text,
             key=f"example_question_{i}",
             use_container_width=True,
         ):
-            selected_question = q
+            selected_question = question_text
 
-st.markdown(
-    '</div>',
-    unsafe_allow_html=True,
-)
+st.markdown("</div>", unsafe_allow_html=True)
 
-
-# ============================================================
-# CHAT INPUT
-# ============================================================
-
-typed_question = st.chat_input(
-    "Ask anything about your work..."
-)
-
-
-# ============================================================
-# DETERMINE QUESTION
-# ============================================================
-
-# If the user clicked an example question, use that.
-# Otherwise use whatever they typed in the chat box.
-
+typed_question = st.chat_input("Ask anything about your work...")
 question = selected_question if selected_question else typed_question
 
 
@@ -823,14 +878,11 @@ question = selected_question if selected_question else typed_question
 # ============================================================
 
 if question:
-
     with st.chat_message("user"):
         st.write(question)
 
     with st.chat_message("assistant"):
-
         with st.spinner("Analyzing your work..."):
-
             answer = llm_answer(
                 question,
                 scenario_dt
